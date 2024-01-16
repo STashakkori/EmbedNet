@@ -23,7 +23,14 @@ set_property(TARGET EmbedNet PROPERTY CXX_STANDARD 20)
 
 target_link_libraries(EmbedNet PRIVATE Poco::Foundation Poco::Net)
 
-add_executable(NetworkTest "NetworkTest.cpp")
+add_executable(NetworkTest
+"NetworkTest.cpp"
+"NetworkFactory.h"
+"NetworkConfiguration.h"
+"UDPConnection.cpp"
+"UDPConnection.h"
+"MonotonicTimer.cpp"
+"MonotonicTimer.h")
 
 target_link_libraries(NetworkTest PRIVATE GTest::GTest GTest::Main Poco::Foundation Poco::Net)
 

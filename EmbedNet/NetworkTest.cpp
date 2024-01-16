@@ -40,3 +40,8 @@ TEST(NetworkConnectionTest, CreateCloseConnectionTest) {
 	auto connection = netFactory.createConnection(netConfig);
 	ASSERT_NE(nullptr, connection);
 }
+
+int main(int argc, char** argv) {
+	::testing::InitGoogleTest(&argc, argv);
+	return RUN_ALL_TESTS();
+}

@@ -1,8 +1,5 @@
 #include "MonotonicTimer.h"
 
-MonotonicTimer::MonotonicTimer(int interval)
-    : interval_(interval), stop_(false) {}
-
 void MonotonicTimer::run() {
     while (!stop_) {
         if (callback_) {

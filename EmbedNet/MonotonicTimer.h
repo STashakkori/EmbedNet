@@ -8,7 +8,7 @@
 
 class MonotonicTimer : public NetworkTimer, public Poco::Runnable {
 public:
-    explicit MonotonicTimer(int interval);
+    explicit MonotonicTimer(int interval) : interval_(interval), stop_(false) {}
 
     void run() override;
     void start(std::function<void()> callback) override;

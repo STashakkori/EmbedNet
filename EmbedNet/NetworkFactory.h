@@ -16,7 +16,9 @@ public:
 
     std::shared_ptr<NetworkConnection> createConnection(const NetworkConfiguration& config) {
         if (config.getProtocol() == "UDP") {
-            auto timer = std::make_shared<MonotonicTimer>(config.getTimerInterval());
+            // Ensuring a valid timer interval
+            int timerInterval = config.getTimerInterval() > 0 ? config.getTimerInterval() : 1000; // Default interval
+            auto timer = std::make_shared<MonotonicTimer>(timerInterval);
             auto connection = std::make_shared<UDPConnection>(config, timer);
 
             std::string key = config.getIPAddress() + ":" + config.getPort();
@@ -24,7 +26,7 @@ public:
 
             return connection;
         }
-        return nullptr;
+        return nullptr; // Return nullptr for unsupported protocols
     }
 
 private:
