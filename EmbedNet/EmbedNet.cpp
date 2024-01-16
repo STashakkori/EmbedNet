@@ -1,6 +1,4 @@
-﻿// EmbedNet.cpp
 // $t@$h     QVLx Labs
-
 #include "EmbedNet.h"
 #include "FactoryTimer.h"
 #include "ContextManager.h"
